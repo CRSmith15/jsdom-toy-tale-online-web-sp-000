@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // hide & seek with the form
     addToy = !addToy;
     if (addToy) {
-      toyFormContainer.style.display = "block";
+      toyForm.style.display = "block";
     } else {
-      toyFormContainer.style.display = "none";
+      toyForm.style.display = "none";
     }
   });
 });
