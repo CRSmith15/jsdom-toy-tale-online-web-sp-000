@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoad', fetchToys());
 
-// GET fetch all toy objects.
 function fetchToys() {
   fetch("http://localhost:3000/toys")
     .then(response => response.json())
@@ -25,27 +24,23 @@ function fetchToys() {
 
 function createCard(json) {
   const collection = document.querySelector('div#toy-collection');
-  // for each toy
   for (const toy of json) {
-    let newDiv = document.createElement('div') // create div
-    newDiv.className = "card" // with class = "card"
+    let newDiv = document.createElement('div')
+    newDiv.className = "card"
     createName(toy, newDiv)
     createPhoto(toy, newDiv)
     totalLikes(toy, newDiv)
     addButton(toy, newDiv)
-    collection.appendChild(newDiv); // append to toyCollection
+    collection.appendChild(newDiv);
   }
 }
 
-// Challenge 2 <<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
-// h2 tag with the toy's name
 function createName(toy, card) {
   let name = document.createElement('h2')
   name.innerText = toy.name
   card.appendChild(name)
 }
 
-// img tag with: src of the toy's image // class of "toy-avatar"
 function createPhoto(toy, card) {
   let img = document.createElement('img')
   img.src = toy.image
@@ -53,14 +48,12 @@ function createPhoto(toy, card) {
   card.appendChild(img)
 }
 
-// p tag with total likes
 function totalLikes(toy, card) {
   let likes = document.createElement('p')
   likes.innerText = `${toy.likes} likes`
   card.appendChild(likes)
 }
 
-// button with class="like-btn"
 function addButton(toy, card) {
   let newButton = document.createElement('button')
   newButton.addEventListener('click', function() {
@@ -73,8 +66,6 @@ function addButton(toy, card) {
   card.appendChild(newButton)
 }
 
-// Challenge 3 <<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
-// POST fetch() request sent to http://localhost:3000/toys
 
 form = document.querySelector('.add-toy-form')
 form.addEventListener('submit', submitData)
@@ -101,7 +92,6 @@ function submitData() {
       .then(json => console.log(json))
 }
 
-// Challenge 4 <<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
 function increaseCount(toy) {
 
   let configObj = {
